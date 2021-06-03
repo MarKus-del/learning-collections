@@ -1,8 +1,6 @@
 package list;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ExampleList {
 
@@ -40,6 +38,76 @@ public class ExampleList {
 
         System.out.println("imprimir a lista em ordem de inserção");
         notas.forEach(System.out::println);
+        System.out.print("\n");
+
+        System.out.println("Exibir a terceira nota: " + notas.get(2));
+        System.out.print("\n");
+
+        System.out.println("Exiba a menor nota: " + Collections.min(notas));
+        System.out.print("\n");
+
+        System.out.println("Exiba a maior nota: " + Collections.max(notas));
+        System.out.print("\n");
+
+        System.out.println("Exiba a soma das notas: ");
+        Iterator<Double> iterator = notas.iterator();
+        Double soma = 0d;
+        while (iterator.hasNext()) {
+            soma += iterator.next();
+        }
+        System.out.println(soma);
+        System.out.print("\n");
+
+        System.out.println("Exibir a media das notas: " + (soma / notas.size()));
+        System.out.print("\n");
+
+
+        System.out.println("Remover a nota 0:");
+        notas.remove(0d);
+        System.out.print("\n");
+
+        System.out.println("Remover a nota da posição 0:");
+        notas.remove(0);
+        System.out.print("\n");
+
+        System.out.println("Remova as notas menores que 7: ");
+        Iterator<Double> iterator1 = notas.iterator();
+
+        while(iterator1.hasNext()) {
+            Double valorAtual = iterator1.next();
+//            if(valorAtual < 7) notas.remove(valorAtual);
+            if(valorAtual < 7) iterator1.remove();
+        }
+        System.out.println(notas);
+        System.out.print("\n");
+
+        System.out.println("Remova toda lista:");
+        notas.clear();
+        System.out.println(notas);
+        System.out.print("\n");
+
+        System.out.println("Conferir se a lista está vazia: " + notas.isEmpty());
+
+        System.out.println("------------------------");
+        System.out.println("Desafios");
+        System.out.print("\n");
+
+        System.out.println("Cria uma list com linkedList e colocar todos os elementos de um lista, nessa nova: ");
+
+        LinkedList<Double> notas2 = new LinkedList<Double>();
+        notas2.addAll(Arrays.asList(4d, 8.9, 6.7, 8.1));
+
+        System.out.println(notas2);
+        System.out.print("\n");
+
+        System.out.println("Mostra o primeiro valor sem excluir: " + notas2.getFirst());
+        System.out.println(notas2);
+        System.out.print("\n");
+
+        System.out.println("Mostra o primeiro valor removendo o da lista: " + notas2.removeFirst());
+        System.out.println(notas2);
+        System.out.print("\n");
+
 
     }
 }
